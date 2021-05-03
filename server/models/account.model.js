@@ -27,7 +27,7 @@ account.findById = function (id, result) {
     });
 };
 account.findAll = function (result) {
-    dbConn.query("Select * from account", function (err, res) {
+    dbConn.query("Select * from accounts", function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err);
