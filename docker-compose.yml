@@ -3,7 +3,7 @@ services:
 
   db:
     image: mysql:5.7
-    container_name: "MySQL_Database_Node"
+    container_name: "IS219_Final"
     ports:
       - "32000:3306"
     environment:

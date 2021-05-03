@@ -2,7 +2,7 @@
 var dbConn = require('../config/db.config');
 //city object create
 var account = function (account) {
-    this.name = account.name;
+    this.username = account.username;
     this.balance = account.balance;
 };
 account.create = function (newAccount, result) {
@@ -38,7 +38,7 @@ account.findAll = function (result) {
     });
 };
 account.update = function (id, account, result) {
-    dbConn.query("UPDATE accounts SET name=?,balance=? WHERE id = ?", [account.name, account.balance, id], function (err, res) {
+    dbConn.query("UPDATE accounts SET username=?,balance=? WHERE id = ?", [account.username, account.balance, id], function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err);
