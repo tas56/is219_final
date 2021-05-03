@@ -3,7 +3,7 @@ use banking;
 
 CREATE TABLE IF NOT EXISTS accounts (
     `id` int AUTO_INCREMENT,
-    `account_name` VARCHAR(21) CHARACTER SET utf8,
+    `name` VARCHAR(21) CHARACTER SET utf8,
     `balance` NUMERIC(19, 2),
     PRIMARY KEY (`id`)
 );

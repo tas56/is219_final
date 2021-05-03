@@ -1,17 +1,12 @@
 'user strict';
 var dbConn = require('../config/db.config');
 //city object create
-var city = function (city) {
-    this.fldName = city.fldName;
-    this.fldLat = city.fldLat;
-    this.fldLong = city.fldLong;
-    this.fldCountry = city.fldCountry;
-    this.fldAbbreviation = city.fldAbbreviation;
-    this.fldCapitalStatus = city.fldCapitalStatus;
-    this.fldPopulation = city.fldPopulation;
+var account = function (account) {
+    this.name = account.name;
+    this.balance = account.balance;
 };
-city.create = function (newCity, result) {
-    dbConn.query("INSERT INTO tblCitiesImport set ?", newCity, function (err, res) {
+account.create = function (newAccount, result) {
+    dbConn.query("INSERT INTO accounts set ?", newAccount, function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(err, null);
@@ -21,8 +16,8 @@ city.create = function (newCity, result) {
         }
     });
 };
-city.findById = function (id, result) {
-    dbConn.query("Select * from tblCitiesImport where id = ? ", id, function (err, res) {
+account.findById = function (id, result) {
+    dbConn.query("Select * from accounts where id = ? ", id, function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(err, null);
@@ -31,19 +26,19 @@ city.findById = function (id, result) {
         }
     });
 };
-city.findAll = function (result) {
-    dbConn.query("Select * from tblCitiesImport", function (err, res) {
+account.findAll = function (result) {
+    dbConn.query("Select * from account", function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err);
         } else {
-            console.log('citys : ', res);
+            console.log('accounts : ', res);
             result(null, res);
         }
     });
 };
-city.update = function (id, city, result) {
-    dbConn.query("UPDATE tblCitiesImport SET fldName=?,fldLat=?,fldLong=?,fldCountry=?,fldAbbreviation=?,fldCapitalStatus=?,fldPopulation=? WHERE id = ?", [city.fldName, city.fldLat, city.fldLong, city.fldCountry, city.fldAbbreviation, city.fldCapitalStatus, city.fldPopulation, id], function (err, res) {
+account.update = function (id, account, result) {
+    dbConn.query("UPDATE accounts SET name=?,balance=? WHERE id = ?", [account.name, account.balance, id], function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err);
@@ -52,8 +47,8 @@ city.update = function (id, city, result) {
         }
     });
 };
-city.delete = function (id, result) {
-    dbConn.query("DELETE FROM tblCitiesImport WHERE id = ?", [id], function (err, res) {
+account.delete = function (id, result) {
+    dbConn.query("DELETE FROM accounts WHERE id = ?", [id], function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err);
@@ -63,4 +58,4 @@ city.delete = function (id, result) {
     });
 };
 
-module.exports = city;
+module.exports = account;

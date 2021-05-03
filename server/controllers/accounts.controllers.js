@@ -20,7 +20,7 @@ exports.create = function(req, res) {
     if(req.body.constructor === Object && Object.keys(req.body).length === 0){
         res.status(400).send({ error:true, message: 'Please provide all required field' });
     }else{
-        City.create(new_account, function(err, account) {
+        Account.create(new_account, function(err, account) {
             if (err)
                 res.send(err);
             res.json({error:false,message:"Account added successfully!",data:account});
@@ -42,7 +42,7 @@ exports.update = function(req, res) {
     if(req.body.constructor === Object && Object.keys(req.body).length === 0){
         res.status(400).send({ error:true, message: 'Please provide all required field' });
     }else{
-        City.update(req.params.id, new Account(req.body), function(err, account) {
+        Account.update(req.params.id, new Account(req.body), function(err, account) {
             if (err)
                 res.send(err);
             res.json({ error:false, message: 'Account successfully updated' });
