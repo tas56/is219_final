@@ -21,7 +21,7 @@ app.use(bodyParser.json())
 
 // define a root route
 
-// Require employee routes
+// Require accounts routes
 const accountsRoutes = require('./routes/accounts.routes')
 
 // using as middleware
