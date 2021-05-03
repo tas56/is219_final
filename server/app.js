@@ -22,10 +22,10 @@ app.use(bodyParser.json())
 // define a root route
 
 // Require employee routes
-const citiesRoutes = require('./routes/cities.routes')
+const accountsRoutes = require('./routes/accounts.routes')
 
 // using as middleware
-app.use('/api/v1/cities', citiesRoutes)
+app.use('/api/v1/accounts', accountsRoutes)
 
 app.set('port', process.env.PORT || 8000);
 app.set('ip', process.env.NODEJS_IP || '127.0.0.1');
