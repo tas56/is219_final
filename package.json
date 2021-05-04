@@ -21,7 +21,8 @@
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "open": "^8.0.4",
-    "passport": "^0.4.1"
+    "passport": "^0.4.1",
+    "pug": "^3.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.13.15",
